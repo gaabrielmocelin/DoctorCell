@@ -15,10 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupWindow()
-        
-        let navController = UINavigationController(rootViewController: ViewController())
-        window?.rootViewController = navController
-        
+        setupInitialScene()
         return true
     }
     
@@ -26,6 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
+    }
+    
+    func setupInitialScene() {
+        let coordinator = SceneCoordinator(window: window!)
+        
+        let productsViewModel = ProductsViewModel(coordinator: coordinator)
+        coordinator.transition(to: .products(productsViewModel), type: .root)
     }
 }
 
