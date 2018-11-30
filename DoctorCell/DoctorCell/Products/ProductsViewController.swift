@@ -23,6 +23,11 @@ final class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.green
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let productvm = ProductDetailViewModel(coordinator: self.viewModel.coordinator)
+            self.viewModel.coordinator.transition(to: .productDetail(productvm), type: .push)
+        }
     }
 }
 

@@ -28,29 +28,40 @@ final class SceneCoordinator: SceneCoordinatorProtocol {
         currentViewController = window.rootViewController ?? UIViewController()
     }
     
-    //if the controller is a navigation, returns the first
+    func transition(to scene: Scene, type: SceneTransitionType) {
+        let viewController = scene.viewController()
+        switch type {
+        case .root:
+            window.rootViewController = viewController
+            currentViewController = actualViewController(for: viewController)
+        case .push:
+            guard let navigationController = currentViewController.navigationController else {
+                fatalError("can not present vc without a current navigation")
+            }
+            navigationController.pushViewController(viewController, animated: true)
+            currentViewController = actualViewController(for: viewController)
+        case .modal:
+            currentViewController.present(viewController, animated: true, completion: nil)
+            currentViewController = actualViewController(for: viewController)
+        }
+    }
+    
+    func pop(animated: Bool) {
+        if let presenter = currentViewController.presentingViewController {
+            currentViewController.dismiss(animated: animated, completion: nil)
+            currentViewController = actualViewController(for: presenter)
+        }else if let navigationController = currentViewController.navigationController {
+            navigationController.popViewController(animated: animated)
+            currentViewController = actualViewController(for: navigationController.viewControllers.last!)
+        }
+    }
+    
+    //if the controller is a navigation, returns the first vc on the stack
     func actualViewController(for viewController: UIViewController) -> UIViewController {
         if let navigationController = viewController as? UINavigationController {
             return navigationController.viewControllers.first!
         } else {
             return viewController
         }
-    }
-    
-    func transition(to scene: Scene, type: SceneTransitionType) {
-        let viewController = scene.viewController()
-        switch type {
-        case .root:
-            currentViewController = actualViewController(for: viewController)
-            window.rootViewController = viewController
-        case .push:
-            break
-        case .modal:
-            break
-        }
-    }
-    
-    func pop(animated: Bool) {
-        
     }
 }

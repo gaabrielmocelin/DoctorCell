@@ -16,13 +16,17 @@ final class ProductDetailViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.orange
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.viewModel.coordinator.pop(animated: true)
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
