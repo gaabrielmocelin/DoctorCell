@@ -118,6 +118,9 @@ fastlane/test_output
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
+# Do not track any sketch files or screenflow files:
+*.sketch
+*.screenflow
 
 # End of https://www.gitignore.io/api/git,xcode,swift,macos,firebase,cocoapods
 contents.xcworkspacedata
