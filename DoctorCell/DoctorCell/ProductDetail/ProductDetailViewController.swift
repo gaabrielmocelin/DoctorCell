@@ -18,11 +18,8 @@ final class ProductDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBackNavigation()
         view.backgroundColor = UIColor.orange
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.viewModel.coordinator.pop(animated: true)
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {

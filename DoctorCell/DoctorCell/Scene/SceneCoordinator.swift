@@ -9,19 +9,18 @@ import UIKit
 
 protocol SceneCoordinatorProtocol {
     init(window: UIWindow)
-    
-    /// transition to another scene
-//    @discardableResult
+
     func transition(to scene: Scene, type: SceneTransitionType)
-    
-    /// pop scene from navigation stack or dismiss current modal
-//    @discardableResult
     func pop(animated: Bool)
 }
 
 final class SceneCoordinator: SceneCoordinatorProtocol {
     fileprivate let window: UIWindow
-    fileprivate var currentViewController: UIViewController
+    fileprivate var currentViewController: UIViewController {
+        didSet{
+            print(currentViewController)
+        }
+    }
     
     required init(window: UIWindow) {
         self.window = window
