@@ -14,6 +14,9 @@
 		E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */; };
 		E16D3E0821B7187800689EAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E16D3E0721B7187800689EAA /* GoogleService-Info.plist */; };
 		E16D3E0B21B7194900689EAA /* FirebaseConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0A21B7194900689EAA /* FirebaseConfigurator.swift */; };
+		E16D3E0E21B71ABE00689EAA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0D21B71ABE00689EAA /* Product.swift */; };
+		E16D3E1121B71DE700689EAA /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E1021B71DE700689EAA /* Codable.swift */; };
+		E16D3E1421B722D100689EAA /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E1321B722D100689EAA /* FirestoreManager.swift */; };
 		E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FD21B169020008D65E /* AppDelegate.swift */; };
 		E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FF21B169020008D65E /* ProductsViewController.swift */; };
 		E1CEC20521B169040008D65E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CEC20421B169040008D65E /* Assets.xcassets */; };
@@ -52,6 +55,9 @@
 		E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		E16D3E0721B7187800689EAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E16D3E0A21B7194900689EAA /* FirebaseConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfigurator.swift; sourceTree = "<group>"; };
+		E16D3E0D21B71ABE00689EAA /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		E16D3E1021B71DE700689EAA /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		E16D3E1321B722D100689EAA /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		E1CEC1FA21B169020008D65E /* DoctorCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CEC1FD21B169020008D65E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CEC1FF21B169020008D65E /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +139,30 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
+		E16D3E0C21B71AA900689EAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E16D3E0D21B71ABE00689EAA /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E16D3E0F21B71DB300689EAA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E16D3E1021B71DE700689EAA /* Codable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E16D3E1221B722B900689EAA /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				E16D3E1321B722D100689EAA /* FirestoreManager.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		E1CEC1F121B169020008D65E = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +186,9 @@
 		E1CEC1FC21B169020008D65E /* DoctorCell */ = {
 			isa = PBXGroup;
 			children = (
+				E16D3E1221B722B900689EAA /* Firestore */,
+				E16D3E0F21B71DB300689EAA /* Extensions */,
+				E16D3E0C21B71AA900689EAA /* Model */,
 				E16D3E0021B6F8B700689EAA /* TabBar */,
 				E1CEC22021B19E870008D65E /* Products */,
 				E1CEC22321B19F140008D65E /* ProductDetail */,
@@ -222,6 +255,7 @@
 				E1CEC1F721B169020008D65E /* Frameworks */,
 				E1CEC1F821B169020008D65E /* Resources */,
 				41CACFB7C2B7E6E643EF33BA /* [CP] Embed Pods Frameworks */,
+				FAEE61E735A1BEA7DC3BBF98 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,25 +370,35 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DoctorCell/Pods-DoctorCell-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +424,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FAEE61E735A1BEA7DC3BBF98 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DoctorCell/Pods-DoctorCell-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoctorCell/Pods-DoctorCell-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -392,14 +454,17 @@
 				E1CEC22F21B1D2660008D65E /* SceneCoordinator.swift in Sources */,
 				E1CEC22921B19FF80008D65E /* Scene+ViewController.swift in Sources */,
 				E1CEC23121B1D29D0008D65E /* SceneTransitionType.swift in Sources */,
+				E16D3E0E21B71ABE00689EAA /* Product.swift in Sources */,
 				E1CEC22B21B1A10E0008D65E /* SceneController.swift in Sources */,
 				E16D3E0B21B7194900689EAA /* FirebaseConfigurator.swift in Sources */,
+				E16D3E1421B722D100689EAA /* FirestoreManager.swift in Sources */,
 				E1F3DF6C21B5D00D00FDCE26 /* AppearanceHelper.swift in Sources */,
 				E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */,
 				E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */,
 				E1CEC22521B19F360008D65E /* ProductDetailViewController.swift in Sources */,
 				E1CEC22221B19E9F0008D65E /* ProductsViewModel.swift in Sources */,
 				E1CEC21F21B19E1F0008D65E /* Scene.swift in Sources */,
+				E16D3E1121B71DE700689EAA /* Codable.swift in Sources */,
 				E1CEC22721B19F480008D65E /* ProductDetailViewModel.swift in Sources */,
 				E16D3E0421B6FACF00689EAA /* TabBarViewModel.swift in Sources */,
 				E1CEC22D21B1A1580008D65E /* ViewModelProtocol.swift in Sources */,
