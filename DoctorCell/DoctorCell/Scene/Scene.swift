@@ -9,6 +9,6 @@
 import Foundation
 
 enum Scene {
-    case products(ProductsViewModel)
+    case tabBar(TabBarViewModel)
     case productDetail(ProductDetailViewModel)
 }

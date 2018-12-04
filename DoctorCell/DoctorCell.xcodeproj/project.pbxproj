@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		ACFEF883A5B5BCF9A1920239 /* Pods_DoctorCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE43E4FBBB4E17A0B2465A54 /* Pods_DoctorCell.framework */; };
 		BACCDAC266AFF1C4B2AB90D3 /* Pods_DoctorCellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D332E7545B6CDC0EE5BBDE8E /* Pods_DoctorCellTests.framework */; };
+		E16D3E0221B6F8D200689EAA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0121B6F8D200689EAA /* TabBarController.swift */; };
+		E16D3E0421B6FACF00689EAA /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */; };
 		E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FD21B169020008D65E /* AppDelegate.swift */; };
 		E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FF21B169020008D65E /* ProductsViewController.swift */; };
 		E1CEC20521B169040008D65E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CEC20421B169040008D65E /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		C4647EF65146563F0400D61A /* Pods-DoctorCellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorCellTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorCellTests/Pods-DoctorCellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D332E7545B6CDC0EE5BBDE8E /* Pods_DoctorCellTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorCellTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D829E97CC0EB74F0673B91C5 /* Pods-DoctorCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorCell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorCell/Pods-DoctorCell.debug.xcconfig"; sourceTree = "<group>"; };
+		E16D3E0121B6F8D200689EAA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		E1CEC1FA21B169020008D65E /* DoctorCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CEC1FD21B169020008D65E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CEC1FF21B169020008D65E /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E16D3E0021B6F8B700689EAA /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E16D3E0121B6F8D200689EAA /* TabBarController.swift */,
+				E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		E1CEC1F121B169020008D65E = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 		E1CEC1FC21B169020008D65E /* DoctorCell */ = {
 			isa = PBXGroup;
 			children = (
+				E16D3E0021B6F8B700689EAA /* TabBar */,
 				E1CEC22021B19E870008D65E /* Products */,
 				E1CEC22321B19F140008D65E /* ProductDetail */,
 				E1CEC21D21B19E0D0008D65E /* Scene */,
@@ -352,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */,
+				E16D3E0221B6F8D200689EAA /* TabBarController.swift in Sources */,
 				E1CEC22F21B1D2660008D65E /* SceneCoordinator.swift in Sources */,
 				E1CEC22921B19FF80008D65E /* Scene+ViewController.swift in Sources */,
 				E1CEC23121B1D29D0008D65E /* SceneTransitionType.swift in Sources */,
@@ -362,6 +377,7 @@
 				E1CEC22221B19E9F0008D65E /* ProductsViewModel.swift in Sources */,
 				E1CEC21F21B19E1F0008D65E /* Scene.swift in Sources */,
 				E1CEC22721B19F480008D65E /* ProductDetailViewModel.swift in Sources */,
+				E16D3E0421B6FACF00689EAA /* TabBarViewModel.swift in Sources */,
 				E1CEC22D21B1A1580008D65E /* ViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

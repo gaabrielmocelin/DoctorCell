@@ -11,8 +11,8 @@ import UIKit
 extension Scene {
     func viewController() -> UIViewController {
         switch self {
-        case .products(let productsViewModel):
-            return UINavigationController(rootViewController: ProductsViewController(viewModel: productsViewModel))
+        case .tabBar(let tabBarViewModel):
+            return TabBarController(viewModel: tabBarViewModel)
         case .productDetail(let productDetailViewModel):
             return ProductDetailViewController(viewModel: productDetailViewModel)
         }

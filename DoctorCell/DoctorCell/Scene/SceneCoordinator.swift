@@ -11,6 +11,7 @@ protocol SceneCoordinatorProtocol {
     init(window: UIWindow)
 
     func transition(to scene: Scene, type: SceneTransitionType)
+    func updateCurrentChild(to child: UIViewController)
     func pop(animated: Bool)
 }
 
@@ -55,10 +56,19 @@ final class SceneCoordinator: SceneCoordinatorProtocol {
         }
     }
     
-    //if the controller is a navigation, returns the first vc on the stack
+    //needs to update the current vc when the tab bar changes the current vc
+    func updateCurrentChild(to child: UIViewController) {
+        currentViewController = actualViewController(for: child)
+    }
+    
+    //if the controller is the tabBar, returns the first vc on the array
+    //if the controller is a navigation, returns the vc on the top of the stack
     func actualViewController(for viewController: UIViewController) -> UIViewController {
-        if let navigationController = viewController as? UINavigationController {
-            return navigationController.viewControllers.first!
+        if let tabBarController = viewController as? TabBarController {
+            let firstVC = tabBarController.viewControllers!.first!
+            return actualViewController(for: firstVC)
+        }else if let navigationController = viewController as? UINavigationController {
+            return navigationController.viewControllers.last!
         } else {
             return viewController
         }
