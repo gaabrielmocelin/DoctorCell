@@ -11,6 +11,7 @@ target 'DoctorCell' do
   pod 'RxSwiftExt'
   pod 'RxDataSources'
   pod 'Action'
+  pod 'Firebase/Core'
 
   target 'DoctorCellTests' do
     inherit! :search_paths

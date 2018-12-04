@@ -12,6 +12,8 @@
 		E16D3E0221B6F8D200689EAA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0121B6F8D200689EAA /* TabBarController.swift */; };
 		E16D3E0421B6FACF00689EAA /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */; };
 		E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */; };
+		E16D3E0821B7187800689EAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E16D3E0721B7187800689EAA /* GoogleService-Info.plist */; };
+		E16D3E0B21B7194900689EAA /* FirebaseConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0A21B7194900689EAA /* FirebaseConfigurator.swift */; };
 		E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FD21B169020008D65E /* AppDelegate.swift */; };
 		E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FF21B169020008D65E /* ProductsViewController.swift */; };
 		E1CEC20521B169040008D65E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CEC20421B169040008D65E /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		E16D3E0121B6F8D200689EAA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		E16D3E0721B7187800689EAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E16D3E0A21B7194900689EAA /* FirebaseConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfigurator.swift; sourceTree = "<group>"; };
 		E1CEC1FA21B169020008D65E /* DoctorCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CEC1FD21B169020008D65E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CEC1FF21B169020008D65E /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +123,16 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		E16D3E0921B7192100689EAA /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				E1F3DF6B21B5D00D00FDCE26 /* AppearanceHelper.swift */,
+				E1CEC1FD21B169020008D65E /* AppDelegate.swift */,
+				E16D3E0A21B7194900689EAA /* FirebaseConfigurator.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
 		E1CEC1F121B169020008D65E = {
 			isa = PBXGroup;
 			children = (
@@ -146,12 +160,12 @@
 				E1CEC22021B19E870008D65E /* Products */,
 				E1CEC22321B19F140008D65E /* ProductDetail */,
 				E1CEC21D21B19E0D0008D65E /* Scene */,
-				E1CEC1FD21B169020008D65E /* AppDelegate.swift */,
+				E16D3E0921B7192100689EAA /* AppDelegate */,
 				E1CEC20421B169040008D65E /* Assets.xcassets */,
 				E1CEC20621B169040008D65E /* LaunchScreen.storyboard */,
 				E1CEC20921B169040008D65E /* Info.plist */,
+				E16D3E0721B7187800689EAA /* GoogleService-Info.plist */,
 				E1CEC22C21B1A1580008D65E /* ViewModelProtocol.swift */,
-				E1F3DF6B21B5D00D00FDCE26 /* AppearanceHelper.swift */,
 			);
 			path = DoctorCell;
 			sourceTree = "<group>";
@@ -282,6 +296,7 @@
 			files = (
 				E1CEC20821B169040008D65E /* LaunchScreen.storyboard in Resources */,
 				E1CEC20521B169040008D65E /* Assets.xcassets in Resources */,
+				E16D3E0821B7187800689EAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,21 +337,25 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DoctorCell/Pods-DoctorCell-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -374,6 +393,7 @@
 				E1CEC22921B19FF80008D65E /* Scene+ViewController.swift in Sources */,
 				E1CEC23121B1D29D0008D65E /* SceneTransitionType.swift in Sources */,
 				E1CEC22B21B1A10E0008D65E /* SceneController.swift in Sources */,
+				E16D3E0B21B7194900689EAA /* FirebaseConfigurator.swift in Sources */,
 				E1F3DF6C21B5D00D00FDCE26 /* AppearanceHelper.swift in Sources */,
 				E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */,
 				E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */,

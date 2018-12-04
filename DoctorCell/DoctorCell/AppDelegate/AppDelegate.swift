@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupWindow()
         setupInitialScene()
         AppearanceHelper.setupNavigationBarAppearance()
+        FirebaseConfigurator.start()
         return true
     }
     
