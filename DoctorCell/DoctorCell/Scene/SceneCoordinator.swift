@@ -56,9 +56,16 @@ final class SceneCoordinator: SceneCoordinatorProtocol {
         }
     }
     
-    //needs to update the current vc when the tab bar changes the current vc
+    /// needs to update the current vc when the tab bar changes the current vc
+    ///
+    /// - Parameter child: the current vc that tab bar is presenting
     func updateCurrentChild(to child: UIViewController) {
-        currentViewController = actualViewController(for: child)
+        if let navigationController = child as? UINavigationController {
+            let controllers = navigationController.viewControllers
+            currentViewController = controllers.contains(currentViewController) ? controllers.first! : controllers.last!
+        } else {
+            currentViewController = actualViewController(for: child)
+        }
     }
     
     //if the controller is the tabBar, returns the first vc on the array

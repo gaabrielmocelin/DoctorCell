@@ -11,6 +11,7 @@
 		BACCDAC266AFF1C4B2AB90D3 /* Pods_DoctorCellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D332E7545B6CDC0EE5BBDE8E /* Pods_DoctorCellTests.framework */; };
 		E16D3E0221B6F8D200689EAA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0121B6F8D200689EAA /* TabBarController.swift */; };
 		E16D3E0421B6FACF00689EAA /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */; };
+		E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */; };
 		E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FD21B169020008D65E /* AppDelegate.swift */; };
 		E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FF21B169020008D65E /* ProductsViewController.swift */; };
 		E1CEC20521B169040008D65E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CEC20421B169040008D65E /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		D829E97CC0EB74F0673B91C5 /* Pods-DoctorCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorCell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorCell/Pods-DoctorCell.debug.xcconfig"; sourceTree = "<group>"; };
 		E16D3E0121B6F8D200689EAA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		E1CEC1FA21B169020008D65E /* DoctorCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CEC1FD21B169020008D65E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CEC1FF21B169020008D65E /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				E1CEC22A21B1A10E0008D65E /* SceneController.swift */,
 				E1CEC22E21B1D2660008D65E /* SceneCoordinator.swift */,
 				E1CEC23021B1D29D0008D65E /* SceneTransitionType.swift */,
+				E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				E1CEC22B21B1A10E0008D65E /* SceneController.swift in Sources */,
 				E1F3DF6C21B5D00D00FDCE26 /* AppearanceHelper.swift in Sources */,
 				E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */,
+				E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */,
 				E1CEC22521B19F360008D65E /* ProductDetailViewController.swift in Sources */,
 				E1CEC22221B19E9F0008D65E /* ProductsViewModel.swift in Sources */,
 				E1CEC21F21B19E1F0008D65E /* Scene.swift in Sources */,
