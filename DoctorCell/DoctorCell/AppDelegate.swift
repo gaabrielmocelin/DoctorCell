@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupInitialScene() {
-        let coordinator = SceneCoordinator(window: window!)
+        let coordinator = TabBarCoordinator(window: window!)
         let tabBarViewModel = TabBarViewModel(coordinator: coordinator)
         coordinator.transition(to: .tabBar(tabBarViewModel), type: .root)
     }

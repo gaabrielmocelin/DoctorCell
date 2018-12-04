@@ -45,7 +45,7 @@ class TabBarController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         guard let viewControllers = viewControllers, item.tag < viewControllers.count else { return }
         
-        viewModel.coordinator.updateCurrentChild(to: viewControllers[item.tag])
+        viewModel.tabCoordinator.updateCurrentChild(to: viewControllers[item.tag])
     }
 }
 

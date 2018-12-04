@@ -8,24 +8,28 @@
 
 import UIKit
 
-//protocol TabBarCoordinatorProtocol: SceneCoordinatorProtocol {
-//    func updateCurrentChild(to child: UIViewController)
-//}
-//
-//class TabBarCoordinator: SceneCoordinator, TabBarCoordinatorProtocol {
-//    required init(window: UIWindow) {
-//        super.init(window: window)
-//    }
-//    
-//    /// needs to update the current vc when the tab bar changes the current vc
-//    ///
-//    /// - Parameter child: the current vc that tab bar is presenting
-//    func updateCurrentChild(to child: UIViewController) {
-//        if let navigationController = child as? UINavigationController {
-//            let controllers = navigationController.viewControllers
-//            currentViewController = controllers.contains(currentViewController) ? controllers.first! : controllers.last!
-//        } else {
-//            currentViewController = actualViewController(for: child)
-//        }
-//    }
-//}
+class TabBarCoordinator: SceneCoordinator {
+    required init(window: UIWindow) {
+        super.init(window: window)
+    }
+    
+    /// needs to update the current vc on coordinator when the tab bar changes the current vc
+    func updateCurrentChild(to child: UIViewController) {
+        if let navigationController = child as? UINavigationController {
+            let controllers = navigationController.viewControllers
+            currentViewController = controllers.contains(currentViewController) ? controllers.first! : controllers.last!
+        } else {
+            currentViewController = actualViewController(for: child)
+        }
+    }
+    
+    /// if the controller is the tabBar, returns the first vc on the array
+    override func actualViewController(for viewController: UIViewController) -> UIViewController {
+        if let tabBarController = viewController as? TabBarController {
+            let firstVC = tabBarController.viewControllers!.first!
+            return actualViewController(for: firstVC)
+        } else {
+            return super.actualViewController(for: viewController)
+        }
+    }
+}

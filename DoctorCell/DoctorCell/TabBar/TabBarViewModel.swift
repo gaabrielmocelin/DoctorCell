@@ -10,11 +10,13 @@ import Foundation
 
 class TabBarViewModel: ViewModelProtocol {
     var coordinator: SceneCoordinatorProtocol
+    var tabCoordinator: TabBarCoordinator
     
     var productsViewModel: ProductsViewModel
     
-    required init(coordinator: SceneCoordinatorProtocol) {
+    required init(coordinator: TabBarCoordinator) {
         self.coordinator = coordinator
+        self.tabCoordinator = coordinator
         
         productsViewModel = ProductsViewModel(coordinator: coordinator)
     }
