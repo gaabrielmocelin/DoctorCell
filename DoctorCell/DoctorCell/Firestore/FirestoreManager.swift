@@ -11,24 +11,36 @@ import FirebaseFirestore
 import RxSwift
 import RxSwiftExt
 
+enum FirestoreError: Error {
+    case nilDictionary
+}
+
+protocol FirestoreProductsProtocol {
+    func getProducts() -> Observable<[Product]>
+    func saveProduct(_ product: Product) -> Completable
+}
+
 class FirestoreManager {
     private let db = Firestore.firestore()
-    
     private let productsReference = "Products"
-    
-    func saveProduct(_ product: Product) {
-        guard let dictionary = product.dictionary else { return }
+}
+
+extension FirestoreManager: FirestoreProductsProtocol {
+    func saveProduct(_ product: Product) -> Completable {
+        guard let id = product.id, let dictionary = product.dictionary else { return Completable.error(FirestoreError.nilDictionary) }
         
-        let ref: DocumentReference = db.collection(productsReference).document()
-        ref.setData(dictionary)
+        return db.collection(productsReference)
+                .document(id)
+                .rx
+                .setData(dictionary)
+                .ignoreElements()
     }
     
     func getProducts() -> Observable<[Product]> {
         return db.collection(productsReference).rx
-                .getDocuments()
-                .map({ (snapshot) -> [Product] in
-                    return snapshot.documents.compactMap { Product(from: $0.data()) }
-                })
-        
+            .getDocuments()
+            .map({ (snapshot) -> [Product] in
+                return snapshot.documents.compactMap { Product(from: $0.data()) }
+            })
     }
 }

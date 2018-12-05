@@ -11,9 +11,9 @@ import RxSwift
 
 final class ProductsViewModel: ViewModelProtocol {
     let coordinator: SceneCoordinatorProtocol
-    private let firestore: FirestoreManager
+    private let firestore: FirestoreProductsProtocol
     
-    required init(coordinator: SceneCoordinatorProtocol, firestore: FirestoreManager) {
+    required init(coordinator: SceneCoordinatorProtocol, firestore: FirestoreProductsProtocol) {
         self.coordinator = coordinator
         self.firestore = firestore
     }
