@@ -17,14 +17,14 @@ extension Encodable {
 
 extension Decodable {
     init?(from: [String: Any]) {
-        let data = try? JSONSerialization.data(withJSONObject: from, options: .prettyPrinted)
-        let decoder = JSONDecoder()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:sszzz"
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        if let decode = try? decoder.decode(Self.self, from: data ?? Data()) {
-            self = decode
-        } else {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: from, options: .prettyPrinted)
+            let decoder = JSONDecoder()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:sszzz"
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            self = try decoder.decode(Self.self, from: data)
+        } catch {
             return nil
         }
     }
