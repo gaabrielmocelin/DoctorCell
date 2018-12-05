@@ -16,7 +16,7 @@ extension Encodable {
 }
 
 extension Decodable {
-    init?(from: Any) {
+    init?(from: [String: Any]) {
         let data = try? JSONSerialization.data(withJSONObject: from, options: .prettyPrinted)
         let decoder = JSONDecoder()
         let dateFormatter = DateFormatter()

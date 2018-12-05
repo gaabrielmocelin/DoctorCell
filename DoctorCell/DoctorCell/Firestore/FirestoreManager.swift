@@ -8,14 +8,27 @@
 
 import Foundation
 import FirebaseFirestore
+import RxSwift
+import RxSwiftExt
 
 class FirestoreManager {
-    let db = Firestore.firestore()
+    private let db = Firestore.firestore()
+    
+    private let productsReference = "Products"
     
     func saveProduct(_ product: Product) {
         guard let dictionary = product.dictionary else { return }
         
-        let ref: DocumentReference = db.collection("Products").document()
+        let ref: DocumentReference = db.collection(productsReference).document()
         ref.setData(dictionary)
+    }
+    
+    func getProducts() -> Observable<[Product]> {
+        return db.collection(productsReference).rx
+                .getDocuments()
+                .map({ (snapshot) -> [Product] in
+                    return snapshot.documents.compactMap { Product(from: $0.data()) }
+                })
+        
     }
 }

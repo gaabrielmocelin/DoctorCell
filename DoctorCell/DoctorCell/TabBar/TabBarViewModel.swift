@@ -18,6 +18,7 @@ class TabBarViewModel: ViewModelProtocol {
         self.coordinator = coordinator
         self.tabCoordinator = coordinator
         
-        productsViewModel = ProductsViewModel(coordinator: coordinator)
+        let firestore = FirestoreManager()
+        productsViewModel = ProductsViewModel(coordinator: coordinator, firestore: firestore)
     }
 }

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RxSwift
 
 final class ProductsViewController: UIViewController {
     var viewModel: ProductsViewModel
+    
+    let disposeBag = DisposeBag()
     
     lazy var button: UIButton = {
         let button = UIButton(frame: CGRect.zero)
@@ -38,6 +41,10 @@ final class ProductsViewController: UIViewController {
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         button.addTarget(self, action: #selector(openDetailVC), for: .touchUpInside)
+        
+        viewModel.products.subscribe(onNext: { (products) in
+            print(products.count)
+        }).disposed(by: disposeBag)
     }
     
      @objc func openDetailVC() {

@@ -14,10 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseConfigurator.start()
         setupWindow()
         setupInitialScene()
         AppearanceHelper.setupNavigationBarAppearance()
-        FirebaseConfigurator.start()
         return true
     }
     

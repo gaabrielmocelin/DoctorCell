@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		ACFEF883A5B5BCF9A1920239 /* Pods_DoctorCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE43E4FBBB4E17A0B2465A54 /* Pods_DoctorCell.framework */; };
 		BACCDAC266AFF1C4B2AB90D3 /* Pods_DoctorCellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D332E7545B6CDC0EE5BBDE8E /* Pods_DoctorCellTests.framework */; };
+		E1562D0521B747FA00B9AF20 /* FIRDocumentReference+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1562D0021B747FA00B9AF20 /* FIRDocumentReference+Rx.swift */; };
+		E1562D0621B747FA00B9AF20 /* FIRWriteBatch+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1562D0121B747FA00B9AF20 /* FIRWriteBatch+Rx.swift */; };
+		E1562D0721B747FA00B9AF20 /* FIRFirestore+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1562D0221B747FA00B9AF20 /* FIRFirestore+Rx.swift */; };
+		E1562D0821B747FA00B9AF20 /* FIRQuery+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1562D0321B747FA00B9AF20 /* FIRQuery+Rx.swift */; };
+		E1562D0921B747FA00B9AF20 /* FIRCollectionReference+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1562D0421B747FA00B9AF20 /* FIRCollectionReference+Rx.swift */; };
 		E16D3E0221B6F8D200689EAA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0121B6F8D200689EAA /* TabBarController.swift */; };
 		E16D3E0421B6FACF00689EAA /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */; };
 		E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */; };
@@ -50,6 +55,11 @@
 		C4647EF65146563F0400D61A /* Pods-DoctorCellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorCellTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorCellTests/Pods-DoctorCellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D332E7545B6CDC0EE5BBDE8E /* Pods_DoctorCellTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorCellTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D829E97CC0EB74F0673B91C5 /* Pods-DoctorCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorCell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorCell/Pods-DoctorCell.debug.xcconfig"; sourceTree = "<group>"; };
+		E1562D0021B747FA00B9AF20 /* FIRDocumentReference+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FIRDocumentReference+Rx.swift"; sourceTree = "<group>"; };
+		E1562D0121B747FA00B9AF20 /* FIRWriteBatch+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FIRWriteBatch+Rx.swift"; sourceTree = "<group>"; };
+		E1562D0221B747FA00B9AF20 /* FIRFirestore+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FIRFirestore+Rx.swift"; sourceTree = "<group>"; };
+		E1562D0321B747FA00B9AF20 /* FIRQuery+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FIRQuery+Rx.swift"; sourceTree = "<group>"; };
+		E1562D0421B747FA00B9AF20 /* FIRCollectionReference+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FIRCollectionReference+Rx.swift"; sourceTree = "<group>"; };
 		E16D3E0121B6F8D200689EAA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E16D3E0321B6FACF00689EAA /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -120,6 +130,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E1562CFF21B747FA00B9AF20 /* Firebase+rx */ = {
+			isa = PBXGroup;
+			children = (
+				E1562D0021B747FA00B9AF20 /* FIRDocumentReference+Rx.swift */,
+				E1562D0121B747FA00B9AF20 /* FIRWriteBatch+Rx.swift */,
+				E1562D0221B747FA00B9AF20 /* FIRFirestore+Rx.swift */,
+				E1562D0321B747FA00B9AF20 /* FIRQuery+Rx.swift */,
+				E1562D0421B747FA00B9AF20 /* FIRCollectionReference+Rx.swift */,
+			);
+			path = "Firebase+rx";
+			sourceTree = "<group>";
+		};
 		E16D3E0021B6F8B700689EAA /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +180,7 @@
 		E16D3E1221B722B900689EAA /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
+				E1562CFF21B747FA00B9AF20 /* Firebase+rx */,
 				E16D3E1321B722D100689EAA /* FirestoreManager.swift */,
 			);
 			path = Firestore;
@@ -450,18 +473,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */,
+				E1562D0721B747FA00B9AF20 /* FIRFirestore+Rx.swift in Sources */,
 				E16D3E0221B6F8D200689EAA /* TabBarController.swift in Sources */,
 				E1CEC22F21B1D2660008D65E /* SceneCoordinator.swift in Sources */,
 				E1CEC22921B19FF80008D65E /* Scene+ViewController.swift in Sources */,
+				E1562D0521B747FA00B9AF20 /* FIRDocumentReference+Rx.swift in Sources */,
 				E1CEC23121B1D29D0008D65E /* SceneTransitionType.swift in Sources */,
 				E16D3E0E21B71ABE00689EAA /* Product.swift in Sources */,
 				E1CEC22B21B1A10E0008D65E /* SceneController.swift in Sources */,
 				E16D3E0B21B7194900689EAA /* FirebaseConfigurator.swift in Sources */,
+				E1562D0821B747FA00B9AF20 /* FIRQuery+Rx.swift in Sources */,
+				E1562D0921B747FA00B9AF20 /* FIRCollectionReference+Rx.swift in Sources */,
 				E16D3E1421B722D100689EAA /* FirestoreManager.swift in Sources */,
 				E1F3DF6C21B5D00D00FDCE26 /* AppearanceHelper.swift in Sources */,
 				E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */,
 				E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */,
 				E1CEC22521B19F360008D65E /* ProductDetailViewController.swift in Sources */,
+				E1562D0621B747FA00B9AF20 /* FIRWriteBatch+Rx.swift in Sources */,
 				E1CEC22221B19E9F0008D65E /* ProductsViewModel.swift in Sources */,
 				E1CEC21F21B19E1F0008D65E /* Scene.swift in Sources */,
 				E16D3E1121B71DE700689EAA /* Codable.swift in Sources */,

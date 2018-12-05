@@ -7,11 +7,18 @@
 //
 
 import Foundation
+import RxSwift
 
 final class ProductsViewModel: ViewModelProtocol {
     let coordinator: SceneCoordinatorProtocol
+    private let firestore: FirestoreManager
     
-    required init(coordinator: SceneCoordinatorProtocol) {
+    required init(coordinator: SceneCoordinatorProtocol, firestore: FirestoreManager) {
         self.coordinator = coordinator
+        self.firestore = firestore
     }
+    
+    lazy var products: Observable<[Product]> = {
+        firestore.getProducts()
+    }()
 }
