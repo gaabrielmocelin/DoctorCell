@@ -49,8 +49,9 @@ final class ProductsViewController: UIViewController {
     func bindProductsToCollection() {
         collectionView.register(type: ProductCollectionViewCell.self)
         let identifier = ProductCollectionViewCell.reuseIdentifier
-        viewModel.products.bind(to: collectionView.rx.items(cellIdentifier: identifier)) { (index, model, cell) in
-                
+        viewModel.products.bind(to: collectionView.rx.items(cellIdentifier: identifier)) { (index, item, cell) in
+            guard let cell = cell as? ProductCollectionViewCell else { return }
+            cell.setup(with: item)
             }.disposed(by: disposeBag)
     }
     

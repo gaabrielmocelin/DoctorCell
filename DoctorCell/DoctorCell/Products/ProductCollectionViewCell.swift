@@ -26,7 +26,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
         currencyFormatter.locale = Locale.current
-        if let priceString = currencyFormatter.string(from: 9999.99) {
+        
+        if let priceString = currencyFormatter.string(from: NSNumber(value: product.price)) {
             priceLabel.text = priceString
         } else {
             priceLabel.text = " -- "
@@ -47,6 +48,7 @@ extension ProductCollectionViewCell: ViewConfigurator {
     }
     
     func setupConstraints() {
+        disableResizingMasks()
         shadowView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         shadowView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         shadowView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
