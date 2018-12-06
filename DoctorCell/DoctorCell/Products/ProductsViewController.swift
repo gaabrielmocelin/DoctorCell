@@ -14,9 +14,12 @@ final class ProductsViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 200, height: 200)
+        let padding: CGFloat = 20
+        let layout = generateFlowLayout(for: padding)
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.contentInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
     
@@ -31,11 +34,23 @@ final class ProductsViewController: UIViewController {
         setupViewConfiguration()
     }
     
+    func generateFlowLayout(for collectionPadding: CGFloat) -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        
+        let padding: CGFloat = 10
+        let width = self.view.bounds.width / 2 - collectionPadding - padding
+        layout.itemSize = CGSize(width: width, height: self.view.bounds.height / 3)
+        layout.minimumLineSpacing = padding * 2
+        layout.minimumInteritemSpacing = padding
+        
+        return layout
+    }
+    
     func bindProductsToCollection() {
         collectionView.register(type: ProductCollectionViewCell.self)
         let identifier = ProductCollectionViewCell.reuseIdentifier
         viewModel.products.bind(to: collectionView.rx.items(cellIdentifier: identifier)) { (index, model, cell) in
-                print("binded")
+                
             }.disposed(by: disposeBag)
     }
     
