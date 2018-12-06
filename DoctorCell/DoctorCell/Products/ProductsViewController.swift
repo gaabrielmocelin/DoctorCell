@@ -49,9 +49,12 @@ final class ProductsViewController: UIViewController {
     func bindProductsToCollection() {
         collectionView.register(type: ProductCollectionViewCell.self)
         let identifier = ProductCollectionViewCell.reuseIdentifier
-        viewModel.products.bind(to: collectionView.rx.items(cellIdentifier: identifier)) { (index, item, cell) in
-            guard let cell = cell as? ProductCollectionViewCell else { return }
-            cell.setup(with: item)
+        
+        viewModel.products
+            .observeOn(MainScheduler.instance)
+            .bind(to: collectionView.rx.items(cellIdentifier: identifier)) { (index, item, cell) in
+                guard let cell = cell as? ProductCollectionViewCell else { return }
+                cell.setup(with: item)
             }.disposed(by: disposeBag)
     }
     
@@ -83,6 +86,7 @@ extension ProductsViewController: ViewConfigurator {
     
     func addRefreshToCollection() {
         let refreshControl = UIRefreshControl()
-//        collectionView.refreshControl = refreshControl
+        collectionView.refreshControl = refreshControl
+        refreshControl.rx.bind(to: viewModel.fetchProducts, input: ())
     }
 }
