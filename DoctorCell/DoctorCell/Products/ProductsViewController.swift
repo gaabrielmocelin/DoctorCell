@@ -13,43 +13,32 @@ final class ProductsViewController: UIViewController {
     var viewModel: ProductsViewModel
     
     let disposeBag = DisposeBag()
-    
-    lazy var button: UIButton = {
-        let button = UIButton(frame: CGRect.zero)
-        button.setTitle("secondVC", for: .normal)
-        return button
-    }()
+    let containerView = ContainerProductsView()
     
     init(viewModel: ProductsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.green
-        
-        view.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        button.addTarget(self, action: #selector(openDetailVC), for: .touchUpInside)
-        
-        viewModel.products.subscribe(onNext: { (products) in
-            print(products.count)
-        }).disposed(by: disposeBag)
+        bindProductsToCollection()
+        navigationItem.title = "Produtos"
     }
     
-     @objc func openDetailVC() {
-        let productvm = ProductDetailViewModel(coordinator: self.viewModel.coordinator)
-        self.viewModel.coordinator.transition(to: .productDetail(productvm), type: .push)
+    override func loadView() {
+        view = containerView
+    }
+    
+    func bindProductsToCollection() {
+        let identifier = ProductCollectionViewCell.reuseIdentifier
+        viewModel.products.bind(to: containerView.collectionView.rx.items(cellIdentifier: identifier)) { (index, model, cell) in
+                print("binded")
+            }.disposed(by: disposeBag)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
