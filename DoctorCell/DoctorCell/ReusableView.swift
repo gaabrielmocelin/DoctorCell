@@ -16,10 +16,6 @@ extension ReusableView {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
-    
-    static var nib: UINib {
-        return UINib(nibName: self.reuseIdentifier, bundle: Bundle.main)
-    }
 }
 
 extension UICollectionViewCell: ReusableView {}
@@ -27,7 +23,7 @@ extension UICollectionViewCell: ReusableView {}
 extension UICollectionView {
     
     func register<T: UICollectionViewCell>(type: T.Type) {
-        self.register(T.nib, forCellWithReuseIdentifier: T.reuseIdentifier)
+        self.register(T.self, forCellWithReuseIdentifier: T.reuseIdentifier)
     }
     
     func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T {
@@ -51,7 +47,7 @@ extension UITableViewCell: ReusableView {}
 extension UITableView {
     
     func register<T: UITableViewCell>(type: T.Type) {
-        self.register(T.nib, forCellReuseIdentifier: T.reuseIdentifier)
+        self.register(T.self, forCellReuseIdentifier: T.reuseIdentifier)
     }
     
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath, of type: T.Type) -> T {

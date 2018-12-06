@@ -11,9 +11,14 @@ import RxSwift
 
 final class ProductsViewController: UIViewController {
     var viewModel: ProductsViewModel
-    
     let disposeBag = DisposeBag()
-    let containerView = ContainerProductsView()
+    
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 200, height: 200)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collectionView
+    }()
     
     init(viewModel: ProductsViewModel) {
         self.viewModel = viewModel
@@ -22,17 +27,14 @@ final class ProductsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindProductsToCollection()
         navigationItem.title = "Produtos"
-    }
-    
-    override func loadView() {
-        view = containerView
+        setupViewConfiguration()
     }
     
     func bindProductsToCollection() {
+        collectionView.register(type: ProductCollectionViewCell.self)
         let identifier = ProductCollectionViewCell.reuseIdentifier
-        viewModel.products.bind(to: containerView.collectionView.rx.items(cellIdentifier: identifier)) { (index, model, cell) in
+        viewModel.products.bind(to: collectionView.rx.items(cellIdentifier: identifier)) { (index, model, cell) in
                 print("binded")
             }.disposed(by: disposeBag)
     }
@@ -44,3 +46,21 @@ final class ProductsViewController: UIViewController {
 
 extension ProductsViewController: SceneControllerProtocol {}
 
+extension ProductsViewController: ViewConfigurator {
+    func buildViewHierarchy() {
+        view.addSubview(collectionView)
+    }
+    
+    func setupConstraints() {
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
+    func configureViews() {
+        collectionView.backgroundColor = view.backgroundColor
+        bindProductsToCollection()
+    }
+}

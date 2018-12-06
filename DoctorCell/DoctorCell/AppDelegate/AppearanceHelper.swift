@@ -13,10 +13,11 @@ struct AppearanceHelper {
         let appearence = UINavigationBar.appearance()
         appearence.prefersLargeTitles = true
         appearence.tintColor = .black
+        appearence.barTintColor = .white
         appearence.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         //translucent
         appearence.isTranslucent = true
-        appearence.setBackgroundImage(UIImage(), for: .default)
+        appearence.shadowImage = UIImage()
     }
 }

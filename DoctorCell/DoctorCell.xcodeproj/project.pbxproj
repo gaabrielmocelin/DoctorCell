@@ -23,7 +23,6 @@
 		E16D3E1121B71DE700689EAA /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E1021B71DE700689EAA /* Codable.swift */; };
 		E16D3E1421B722D100689EAA /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D3E1321B722D100689EAA /* FirestoreManager.swift */; };
 		E1A7668921B856DE00B696D6 /* ViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7668821B856DE00B696D6 /* ViewConfigurator.swift */; };
-		E1A7668D21B85D5D00B696D6 /* ContainerProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7668C21B85D5D00B696D6 /* ContainerProductsView.swift */; };
 		E1A7668F21B862AE00B696D6 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7668E21B862AE00B696D6 /* ProductCollectionViewCell.swift */; };
 		E1A7669121B8642400B696D6 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669021B8642400B696D6 /* ReusableView.swift */; };
 		E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FD21B169020008D65E /* AppDelegate.swift */; };
@@ -73,7 +72,6 @@
 		E16D3E1021B71DE700689EAA /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		E16D3E1321B722D100689EAA /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		E1A7668821B856DE00B696D6 /* ViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfigurator.swift; sourceTree = "<group>"; };
-		E1A7668C21B85D5D00B696D6 /* ContainerProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerProductsView.swift; sourceTree = "<group>"; };
 		E1A7668E21B862AE00B696D6 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		E1A7669021B8642400B696D6 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		E1CEC1FA21B169020008D65E /* DoctorCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +261,6 @@
 			children = (
 				E1CEC1FF21B169020008D65E /* ProductsViewController.swift */,
 				E1CEC22121B19E9F0008D65E /* ProductsViewModel.swift */,
-				E1A7668C21B85D5D00B696D6 /* ContainerProductsView.swift */,
 				E1A7668E21B862AE00B696D6 /* ProductCollectionViewCell.swift */,
 			);
 			path = Products;
@@ -494,7 +491,6 @@
 				E16D3E0E21B71ABE00689EAA /* Product.swift in Sources */,
 				E1CEC22B21B1A10E0008D65E /* SceneController.swift in Sources */,
 				E16D3E0B21B7194900689EAA /* FirebaseConfigurator.swift in Sources */,
-				E1A7668D21B85D5D00B696D6 /* ContainerProductsView.swift in Sources */,
 				E1562D0821B747FA00B9AF20 /* FIRQuery+Rx.swift in Sources */,
 				E1A7668921B856DE00B696D6 /* ViewConfigurator.swift in Sources */,
 				E1562D0921B747FA00B9AF20 /* FIRCollectionReference+Rx.swift in Sources */,
