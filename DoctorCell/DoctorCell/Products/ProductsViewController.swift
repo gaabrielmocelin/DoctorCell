@@ -62,5 +62,11 @@ extension ProductsViewController: ViewConfigurator {
     func configureViews() {
         collectionView.backgroundColor = view.backgroundColor
         bindProductsToCollection()
+        addRefreshToCollection()
+    }
+    
+    func addRefreshToCollection() {
+        let refreshControl = UIRefreshControl()
+//        collectionView.refreshControl = refreshControl
     }
 }
