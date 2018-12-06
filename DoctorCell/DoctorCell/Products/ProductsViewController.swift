@@ -23,6 +23,13 @@ final class ProductsViewController: UIViewController {
         return collectionView
     }()
     
+    lazy var searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Informe o nome do produto"
+        return search
+    }()
+    
     init(viewModel: ProductsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -80,8 +87,25 @@ extension ProductsViewController: ViewConfigurator {
     
     func configureViews() {
         collectionView.backgroundColor = view.backgroundColor
-        bindProductsToCollection()
+        setupSearchBar()
         addRefreshToCollection()
+        bindProductsToCollection()
+    }
+    
+    func setupSearchBar() {
+        navigationItem.searchController = searchController
+        let text = searchController.searchBar.rx
+                        .text
+                        .orEmpty
+                        .asObservable()
+        
+        let cancel = searchController.searchBar.rx
+                        .cancelButtonClicked
+                        .map { "" }
+        
+        Observable.merge(text, cancel)
+            .bind(to: viewModel.query)
+            .disposed(by: disposeBag)
     }
     
     func addRefreshToCollection() {
