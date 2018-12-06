@@ -12,8 +12,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
     let imageView = UIImageView()
     let nameLabel = UILabel()
     let priceLabel = UILabel()
-    let shadowView = UIView()
-    let cornerView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,26 +40,21 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
 extension ProductCollectionViewCell: ViewConfigurator {
     func buildViewHierarchy() {
-        addSubview(shadowView)
-        addSubview(cornerView)
-        cornerView.addSubview(imageView)
-        addSubview(nameLabel)
-        addSubview(priceLabel)
+        contentView.addSubview(imageView)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(priceLabel)
     }
     
     func setupConstraints() {
-        shadowView.equalConstraintsTo(view: self, constant: 3)
-        cornerView.equalConstraintsTo(view: shadowView)
-        
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.topAnchor.constraint(equalTo: cornerView.topAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: cornerView.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: cornerView.trailingAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalTo: cornerView.heightAnchor, multiplier: 0.7).isActive = true
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7).isActive = true
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor, constant: 10).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
@@ -69,14 +62,28 @@ extension ProductCollectionViewCell: ViewConfigurator {
     }
     
     func configureViews() {
-        layer.shouldRasterize = true
-        layer.masksToBounds = false
-        cornerView.layer.cornerRadius = 8
-        cornerView.clipsToBounds = true
+        setupCornerRadius()
+        setupShadow()
+        
         imageView.backgroundColor = .lightGray
     }
     
-    override func layoutSubviews() {
-        shadowView.layer.addShadow(with: .black, alpha: 0.2, xOffset: 0, yOffset: 0, blur: 6)
+    private func setupCornerRadius() {
+        contentView.layer.cornerRadius = 8
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true
+        contentView.clipsToBounds = true
+        contentView.backgroundColor = UIColor.white
+    }
+    
+    private func setupShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        layer.shadowRadius = 5
+        layer.shadowOpacity = 0.2
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+        layer.backgroundColor = UIColor.clear.cgColor
     }
 }
