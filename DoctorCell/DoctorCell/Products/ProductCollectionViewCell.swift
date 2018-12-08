@@ -9,9 +9,20 @@
 import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
+    
     let imageView = UIImageView()
-    let nameLabel = UILabel()
-    let priceLabel = UILabel()
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17)
+        return label
+    }()
+    
+    let priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
