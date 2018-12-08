@@ -11,6 +11,7 @@ import Foundation
 struct Product: Codable {
     let id: String?
     let name: String
-    let description: String?
     let price: Float
+    let description: String?
+    let imageURL: String?
 }

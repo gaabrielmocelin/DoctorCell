@@ -32,6 +32,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
         } else {
             priceLabel.text = " -- "
         }
+        
+        print(product.imageURL ?? "nil imageURL")
     }
     
     required init?(coder aDecoder: NSCoder) {

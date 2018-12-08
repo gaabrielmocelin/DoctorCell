@@ -88,6 +88,7 @@ PODS:
     - gRPC-Core/Interface (= 1.14.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.14.0)
+  - Kingfisher (4.10.1)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -117,6 +118,7 @@ DEPENDENCIES:
   - Action
   - Firebase/Core
   - Firebase/Firestore
+  - Kingfisher
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -137,6 +139,7 @@ SPEC REPOS:
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - Kingfisher
     - leveldb-library
     - nanopb
     - Protobuf
@@ -160,6 +163,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   "gRPC-C++": 19eec1ffd34de29453f5fab5b4697ad0f240ad51
   gRPC-Core: f4836515817c0eb479aeeb9cc27c91c4ba62a9f6
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
@@ -169,6 +173,6 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
 
-PODFILE CHECKSUM: f99d6293760b39e934c53acfe59b80abeb1cb8f6
+PODFILE CHECKSUM: ba177e06d559781eae8af5f04f8d0013deb8164d
 
 COCOAPODS: 1.5.3

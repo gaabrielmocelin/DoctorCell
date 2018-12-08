@@ -13,6 +13,7 @@ target 'DoctorCell' do
   pod 'Action'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Kingfisher'
 
   target 'DoctorCellTests' do
     inherit! :search_paths
