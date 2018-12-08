@@ -27,6 +27,7 @@
 		E1A7669121B8642400B696D6 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669021B8642400B696D6 /* ReusableView.swift */; };
 		E1A7669521B99E6A00B696D6 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669421B99E6A00B696D6 /* CALayer+Shadow.swift */; };
 		E1A7669721B9A39D00B696D6 /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669621B9A39D00B696D6 /* UIView+constraints.swift */; };
+		E1A7669921BB41F400B696D6 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669821BB41F400B696D6 /* UILabel.swift */; };
 		E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FD21B169020008D65E /* AppDelegate.swift */; };
 		E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FF21B169020008D65E /* ProductsViewController.swift */; };
 		E1CEC20521B169040008D65E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CEC20421B169040008D65E /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		E1A7669021B8642400B696D6 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		E1A7669421B99E6A00B696D6 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		E1A7669621B9A39D00B696D6 /* UIView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
+		E1A7669821BB41F400B696D6 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		E1CEC1FA21B169020008D65E /* DoctorCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CEC1FD21B169020008D65E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CEC1FF21B169020008D65E /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				E16D3E1021B71DE700689EAA /* Codable.swift */,
 				E1A7669421B99E6A00B696D6 /* CALayer+Shadow.swift */,
 				E1A7669621B9A39D00B696D6 /* UIView+constraints.swift */,
+				E1A7669821BB41F400B696D6 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				E1CEC23121B1D29D0008D65E /* SceneTransitionType.swift in Sources */,
 				E16D3E0E21B71ABE00689EAA /* Product.swift in Sources */,
 				E1CEC22B21B1A10E0008D65E /* SceneController.swift in Sources */,
+				E1A7669921BB41F400B696D6 /* UILabel.swift in Sources */,
 				E16D3E0B21B7194900689EAA /* FirebaseConfigurator.swift in Sources */,
 				E1562D0821B747FA00B9AF20 /* FIRQuery+Rx.swift in Sources */,
 				E1A7668921B856DE00B696D6 /* ViewConfigurator.swift in Sources */,
