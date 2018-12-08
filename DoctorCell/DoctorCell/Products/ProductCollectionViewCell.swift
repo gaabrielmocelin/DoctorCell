@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
-    let imageView = UIImageView()
     let nameLabel = UILabel(fontSize: 17, weight: .regular)
     let priceLabel = UILabel(fontSize: 17, weight: .semibold)
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +38,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
             priceLabel.text = " -- "
         }
         
-        print(product.imageURL ?? "nil imageURL")
+        if let imageURL = product.imageURL, let url = URL(string: imageURL) {
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(with: ImageResource(downloadURL: url),
+                                  placeholder: #imageLiteral(resourceName: "placeholderImage"),
+                                  options: [.transition(ImageTransition.fade(1))])
+        } else {
+            imageView.image = #imageLiteral(resourceName: "placeholderImage")
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
