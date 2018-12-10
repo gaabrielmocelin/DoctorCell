@@ -19,6 +19,7 @@ final class ProductsViewModel: ViewModelProtocol {
     let fetchProducts: Action<Void, [Product]>
     
     let loginRequested: Observable<Bool>
+    let didPressedLoginButton: CocoaAction
     
     required init(coordinator: SceneCoordinatorProtocol, firestore: FirestoreProductsProtocol) {
         self.coordinator = coordinator
@@ -41,5 +42,10 @@ final class ProductsViewModel: ViewModelProtocol {
         loginRequested = query.throttle(0.5, scheduler: MainScheduler.instance)
                             .distinctUntilChanged()
                             .map { $0.lowercased() == "login" }
+        
+        didPressedLoginButton = CocoaAction {
+            print("did tapped login.")
+            return Observable.empty()
+        }
     }
 }

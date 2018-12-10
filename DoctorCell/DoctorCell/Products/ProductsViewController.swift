@@ -53,6 +53,8 @@ final class ProductsViewController: UIViewController {
     }
     
     func listenToAdminRequest() {
+        loginButton.rx.action = viewModel.didPressedLoginButton
+        
         viewModel.loginRequested
             .map { !$0 }
             .bind(to: loginButton.rx.isHidden)
