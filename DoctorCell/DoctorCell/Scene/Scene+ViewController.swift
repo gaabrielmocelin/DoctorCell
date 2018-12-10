@@ -13,6 +13,9 @@ extension Scene {
         switch self {
         case .tabBar(let tabBarViewModel):
             return TabBarController(viewModel: tabBarViewModel)
+        case .products(let productsViewModel):
+            let productsVC = ProductsViewController(viewModel: productsViewModel)
+            return UINavigationController(rootViewController: productsVC)
         case .productDetail(let productDetailViewModel):
             return ProductDetailViewController(viewModel: productDetailViewModel)
         }

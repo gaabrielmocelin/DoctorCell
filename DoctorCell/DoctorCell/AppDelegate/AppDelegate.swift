@@ -28,8 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupInitialScene() {
-        let coordinator = TabBarCoordinator(window: window!)
-        let tabBarViewModel = TabBarViewModel(coordinator: coordinator)
-        coordinator.transition(to: .tabBar(tabBarViewModel), type: .root)
+        let coordinator = SceneCoordinator(window: window!)
+        
+        let productsViewModel = ProductsViewModel(coordinator: coordinator, firestore: FirestoreManager())
+        coordinator.transition(to: .products(productsViewModel), type: .root)
     }
 }
