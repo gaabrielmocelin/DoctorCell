@@ -18,6 +18,8 @@ final class ProductsViewModel: ViewModelProtocol {
     var products: Observable<[Product]>
     let fetchProducts: Action<Void, [Product]>
     
+    let loginRequested: Observable<Bool>
+    
     required init(coordinator: SceneCoordinatorProtocol, firestore: FirestoreProductsProtocol) {
         self.coordinator = coordinator
         self.firestore = firestore
@@ -35,5 +37,9 @@ final class ProductsViewModel: ViewModelProtocol {
                 }
         
         products = Observable.merge(allProducts, filteredProducts)
+        
+        loginRequested = query.throttle(0.5, scheduler: MainScheduler.instance)
+                            .distinctUntilChanged()
+                            .map { $0.lowercased() == "login" }
     }
 }
