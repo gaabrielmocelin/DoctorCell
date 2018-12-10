@@ -28,6 +28,7 @@
 		E1A7669521B99E6A00B696D6 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669421B99E6A00B696D6 /* CALayer+Shadow.swift */; };
 		E1A7669721B9A39D00B696D6 /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669621B9A39D00B696D6 /* UIView+constraints.swift */; };
 		E1A7669921BB41F400B696D6 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669821BB41F400B696D6 /* UILabel.swift */; };
+		E1A7669B21BDF2D200B696D6 /* NumberFormatter+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7669A21BDF2D200B696D6 /* NumberFormatter+Currency.swift */; };
 		E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FD21B169020008D65E /* AppDelegate.swift */; };
 		E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEC1FF21B169020008D65E /* ProductsViewController.swift */; };
 		E1CEC20521B169040008D65E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CEC20421B169040008D65E /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		E1A7669421B99E6A00B696D6 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 		E1A7669621B9A39D00B696D6 /* UIView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
 		E1A7669821BB41F400B696D6 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		E1A7669A21BDF2D200B696D6 /* NumberFormatter+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Currency.swift"; sourceTree = "<group>"; };
 		E1CEC1FA21B169020008D65E /* DoctorCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CEC1FD21B169020008D65E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1CEC1FF21B169020008D65E /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				E1A7669421B99E6A00B696D6 /* CALayer+Shadow.swift */,
 				E1A7669621B9A39D00B696D6 /* UIView+constraints.swift */,
 				E1A7669821BB41F400B696D6 /* UILabel.swift */,
+				E1A7669A21BDF2D200B696D6 /* NumberFormatter+Currency.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				E1CEC1FE21B169020008D65E /* AppDelegate.swift in Sources */,
 				E1A7669521B99E6A00B696D6 /* CALayer+Shadow.swift in Sources */,
 				E16D3E0621B709B400689EAA /* TabBarCoordinator.swift in Sources */,
+				E1A7669B21BDF2D200B696D6 /* NumberFormatter+Currency.swift in Sources */,
 				E1A7669121B8642400B696D6 /* ReusableView.swift in Sources */,
 				E1CEC22521B19F360008D65E /* ProductDetailViewController.swift in Sources */,
 				E1562D0621B747FA00B9AF20 /* FIRWriteBatch+Rx.swift in Sources */,

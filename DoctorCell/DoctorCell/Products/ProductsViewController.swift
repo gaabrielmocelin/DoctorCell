@@ -46,7 +46,7 @@ final class ProductsViewController: UIViewController {
         
         let padding: CGFloat = 10
         let width = self.view.bounds.width / 2 - collectionPadding - padding
-        layout.itemSize = CGSize(width: width, height: self.view.bounds.height / 3)
+        layout.itemSize = CGSize(width: width, height: width * 1.5)
         layout.minimumLineSpacing = padding * 2
         layout.minimumInteritemSpacing = padding
         

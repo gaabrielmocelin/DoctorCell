@@ -27,15 +27,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
     func setup(with product: Product) {
         nameLabel.text = product.name
         
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.locale = Locale.current
-        
-        if let priceString = currencyFormatter.string(from: NSNumber(value: product.price)) {
+        if let priceString = NumberFormatter.currency.string(from: product.price) {
             priceLabel.text = priceString
         } else {
-            priceLabel.text = " -- "
+            priceLabel.text = "Preço indisponível"
         }
         
         if let imageURL = product.imageURL, let url = URL(string: imageURL) {
@@ -68,12 +63,14 @@ extension ProductCollectionViewCell: ViewConfigurator {
         imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7).isActive = true
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        nameLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.15).isActive = true
         
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
-        priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
+        priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: -10).isActive = true
         priceLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor).isActive = true
+        priceLabel.heightAnchor.constraint(equalTo: nameLabel.heightAnchor).isActive = true
     }
     
     func configureViews() {
