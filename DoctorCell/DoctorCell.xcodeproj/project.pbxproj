@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		ACFEF883A5B5BCF9A1920239 /* Pods_DoctorCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE43E4FBBB4E17A0B2465A54 /* Pods_DoctorCell.framework */; };
 		BACCDAC266AFF1C4B2AB90D3 /* Pods_DoctorCellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D332E7545B6CDC0EE5BBDE8E /* Pods_DoctorCellTests.framework */; };
+		E1063A3E21C07045008FCCB0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1063A3D21C07045008FCCB0 /* LoginViewController.swift */; };
+		E1063A4021C07062008FCCB0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1063A3F21C07062008FCCB0 /* LoginViewModel.swift */; };
 		E1562D0521B747FA00B9AF20 /* FIRDocumentReference+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1562D0021B747FA00B9AF20 /* FIRDocumentReference+Rx.swift */; };
 		E1562D0621B747FA00B9AF20 /* FIRWriteBatch+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1562D0121B747FA00B9AF20 /* FIRWriteBatch+Rx.swift */; };
 		E1562D0721B747FA00B9AF20 /* FIRFirestore+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1562D0221B747FA00B9AF20 /* FIRFirestore+Rx.swift */; };
@@ -62,6 +64,8 @@
 		C4647EF65146563F0400D61A /* Pods-DoctorCellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorCellTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorCellTests/Pods-DoctorCellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D332E7545B6CDC0EE5BBDE8E /* Pods_DoctorCellTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorCellTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D829E97CC0EB74F0673B91C5 /* Pods-DoctorCell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorCell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorCell/Pods-DoctorCell.debug.xcconfig"; sourceTree = "<group>"; };
+		E1063A3D21C07045008FCCB0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E1063A3F21C07062008FCCB0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E1562D0021B747FA00B9AF20 /* FIRDocumentReference+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FIRDocumentReference+Rx.swift"; sourceTree = "<group>"; };
 		E1562D0121B747FA00B9AF20 /* FIRWriteBatch+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FIRWriteBatch+Rx.swift"; sourceTree = "<group>"; };
 		E1562D0221B747FA00B9AF20 /* FIRFirestore+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FIRFirestore+Rx.swift"; sourceTree = "<group>"; };
@@ -142,6 +146,15 @@
 				D332E7545B6CDC0EE5BBDE8E /* Pods_DoctorCellTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1063A3C21C0701B008FCCB0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E1063A3D21C07045008FCCB0 /* LoginViewController.swift */,
+				E1063A3F21C07062008FCCB0 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		E1562CFF21B747FA00B9AF20 /* Firebase+rx */ = {
@@ -227,14 +240,15 @@
 		E1CEC1FC21B169020008D65E /* DoctorCell */ = {
 			isa = PBXGroup;
 			children = (
-				E16D3E1221B722B900689EAA /* Firestore */,
-				E16D3E0F21B71DB300689EAA /* Extensions */,
-				E16D3E0C21B71AA900689EAA /* Model */,
 				E16D3E0021B6F8B700689EAA /* TabBar */,
 				E1CEC22021B19E870008D65E /* Products */,
 				E1CEC22321B19F140008D65E /* ProductDetail */,
+				E1063A3C21C0701B008FCCB0 /* Login */,
 				E1CEC21D21B19E0D0008D65E /* Scene */,
 				E16D3E0921B7192100689EAA /* AppDelegate */,
+				E16D3E1221B722B900689EAA /* Firestore */,
+				E16D3E0C21B71AA900689EAA /* Model */,
+				E16D3E0F21B71DB300689EAA /* Extensions */,
 				E1CEC20421B169040008D65E /* Assets.xcassets */,
 				E1CEC20621B169040008D65E /* LaunchScreen.storyboard */,
 				E1CEC20921B169040008D65E /* Info.plist */,
@@ -497,6 +511,7 @@
 			files = (
 				E1CEC20021B169020008D65E /* ProductsViewController.swift in Sources */,
 				E1562D0721B747FA00B9AF20 /* FIRFirestore+Rx.swift in Sources */,
+				E1063A4021C07062008FCCB0 /* LoginViewModel.swift in Sources */,
 				E16D3E0221B6F8D200689EAA /* TabBarController.swift in Sources */,
 				E1CEC22F21B1D2660008D65E /* SceneCoordinator.swift in Sources */,
 				E1A7669721B9A39D00B696D6 /* UIView+constraints.swift in Sources */,
@@ -507,6 +522,7 @@
 				E1CEC22B21B1A10E0008D65E /* SceneController.swift in Sources */,
 				E1A7669921BB41F400B696D6 /* UILabel.swift in Sources */,
 				E16D3E0B21B7194900689EAA /* FirebaseConfigurator.swift in Sources */,
+				E1063A3E21C07045008FCCB0 /* LoginViewController.swift in Sources */,
 				E1562D0821B747FA00B9AF20 /* FIRQuery+Rx.swift in Sources */,
 				E1A7668921B856DE00B696D6 /* ViewConfigurator.swift in Sources */,
 				E1562D0921B747FA00B9AF20 /* FIRCollectionReference+Rx.swift in Sources */,

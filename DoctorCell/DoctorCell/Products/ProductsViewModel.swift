@@ -44,7 +44,8 @@ final class ProductsViewModel: ViewModelProtocol {
                             .map { $0.lowercased() == "login" }
         
         didPressedLoginButton = CocoaAction {
-            print("did tapped login.")
+            let loginViewModel = LoginViewModel(coordinator: coordinator)
+            coordinator.transition(to: .login(loginViewModel), type: .modal)
             return Observable.empty()
         }
     }

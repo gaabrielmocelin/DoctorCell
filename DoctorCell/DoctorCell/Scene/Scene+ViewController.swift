@@ -18,6 +18,8 @@ extension Scene {
             return UINavigationController(rootViewController: productsVC)
         case .productDetail(let productDetailViewModel):
             return ProductDetailViewController(viewModel: productDetailViewModel)
+        case .login(let loginViewModel):
+            return LoginViewController(viewModel: loginViewModel)
         }
     }
 }

@@ -48,6 +48,7 @@ final class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Produtos"
+        definesPresentationContext = true
         setupViewConfiguration()
         listenToAdminRequest()
     }
