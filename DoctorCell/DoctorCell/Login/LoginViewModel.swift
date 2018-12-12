@@ -11,13 +11,13 @@ import RxSwift
 import Action
 
 final class LoginViewModel: ViewModelProtocol {
-    typealias LoginRequest = Observable<(String, String)>
-    
+    let disposeBag = DisposeBag()
     var coordinator: SceneCoordinatorProtocol
     
-    var loginRequest = PublishSubject<LoginRequest>()
-    
     var dismissAction: CocoaAction
+    
+    typealias LoginRequest = Observable<(String, String)>
+    var loginAction: Action<LoginRequest,Bool>
     
     init(coordinator: SceneCoordinatorProtocol) {
         self.coordinator = coordinator
@@ -26,11 +26,11 @@ final class LoginViewModel: ViewModelProtocol {
             coordinator.pop(animated: true)
             return Observable.empty()
         }
-    }
-    
-    lazy var loginAction: Action<LoginRequest,Bool> = {
-        return Action<Observable<(String, String)>,Bool> { request in
+        
+        loginAction = Action<Observable<(String, String)>,Bool> { request in
             return request.map { $0.0 == "teste" }.take(1)
         }
-    }()
+        
+        loginAction.elements.debug().subscribe().disposed(by: disposeBag)
+    }
 }
