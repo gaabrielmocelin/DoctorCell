@@ -62,6 +62,7 @@ extension ProductDetailViewController: ViewConfigurator {
     }
     
     func configureViews() {
+        view.backgroundColor = .white
         navigationItem.title = viewModel.product.name
     }
 }
