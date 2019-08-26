@@ -51,6 +51,14 @@ final class ProductsViewController: UIViewController {
         definesPresentationContext = true
         setupViewConfiguration()
         listenToAdminRequest()
+        listenToItemSelected()
+    }
+    
+    func listenToItemSelected() {
+        Observable.combineLatest(viewModel.products, collectionView.rx.itemSelected)
+            .map { $0[$1.row] }
+            .bind(to: viewModel.selectedItem)
+            .disposed(by: disposeBag)
     }
     
     func listenToAdminRequest() {

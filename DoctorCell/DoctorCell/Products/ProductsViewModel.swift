@@ -14,12 +14,16 @@ final class ProductsViewModel: ViewModelProtocol {
     let coordinator: SceneCoordinatorProtocol
     private let firestore: FirestoreProductsProtocol
     
+    let disposeBag = DisposeBag()
+    
     var query = PublishSubject<String>()
     var products: Observable<[Product]>
     let fetchProducts: Action<Void, [Product]>
     
     let loginRequested: Observable<Bool>
     let didPressedLoginButton: CocoaAction
+    
+    var selectedItem = PublishSubject<Product>()
     
     required init(coordinator: SceneCoordinatorProtocol, firestore: FirestoreProductsProtocol) {
         self.coordinator = coordinator
@@ -48,5 +52,11 @@ final class ProductsViewModel: ViewModelProtocol {
             coordinator.transition(to: .login(loginViewModel), type: .modal)
             return Observable.empty()
         }
+        
+        selectedItem.subscribe(onNext: { [unowned self] (product) in
+            //open detail
+            let productDetailViewModel = ProductDetailViewModel(coordinator: self.coordinator)
+            coordinator.transition(to: .productDetail(productDetailViewModel), type: .push)
+        }).disposed(by: disposeBag)
     }
 }
