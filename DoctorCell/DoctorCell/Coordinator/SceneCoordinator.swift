@@ -11,7 +11,8 @@ protocol SceneCoordinatorProtocol {
     init(window: UIWindow)
 
     func transition(to scene: Scene, type: SceneTransitionType)
-    func pop(animated: Bool)
+    func dismiss(animated: Bool)
+    func didPop()
 }
 
 class SceneCoordinator: SceneCoordinatorProtocol {
@@ -45,12 +46,19 @@ class SceneCoordinator: SceneCoordinatorProtocol {
         }
     }
     
-    func pop(animated: Bool) {
+    func dismiss(animated: Bool) {
         if let presenter = currentViewController.presentingViewController {
             currentViewController.dismiss(animated: animated, completion: nil)
             currentViewController = actualViewController(for: presenter)
         }else if let navigationController = currentViewController.navigationController {
             navigationController.popViewController(animated: animated)
+            currentViewController = actualViewController(for: navigationController.viewControllers.last!)
+        }
+    }
+    
+    //updates the current vc if the pop was made direct from system
+    func didPop() {
+        if let navigationController = currentViewController.navigationController {
             currentViewController = actualViewController(for: navigationController.viewControllers.last!)
         }
     }

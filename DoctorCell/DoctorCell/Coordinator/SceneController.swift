@@ -16,10 +16,7 @@ protocol SceneControllerProtocol {
 }
 
 extension SceneControllerProtocol where Self: UIViewController {
-    func setupBackNavigation() {
-        var customBackButton = UIBarButtonItem(title: "<", style: .done, target: nil, action: nil)
-        customBackButton.rx.action = viewModel.backAction()
-        navigationItem.hidesBackButton = true
-        navigationItem.leftBarButtonItem = customBackButton
+    func popped() {
+        viewModel.coordinator.didPop()
     }
 }

@@ -244,7 +244,7 @@
 				E1CEC22021B19E870008D65E /* Products */,
 				E1CEC22321B19F140008D65E /* ProductDetail */,
 				E1063A3C21C0701B008FCCB0 /* Login */,
-				E1CEC21D21B19E0D0008D65E /* Scene */,
+				E1CEC21D21B19E0D0008D65E /* Coordinator */,
 				E16D3E0921B7192100689EAA /* AppDelegate */,
 				E16D3E1221B722B900689EAA /* Firestore */,
 				E16D3E0C21B71AA900689EAA /* Model */,
@@ -253,7 +253,6 @@
 				E1CEC20621B169040008D65E /* LaunchScreen.storyboard */,
 				E1CEC20921B169040008D65E /* Info.plist */,
 				E16D3E0721B7187800689EAA /* GoogleService-Info.plist */,
-				E1CEC22C21B1A1580008D65E /* ViewModelProtocol.swift */,
 				E1A7668821B856DE00B696D6 /* ViewConfigurator.swift */,
 				E1A7669021B8642400B696D6 /* ReusableView.swift */,
 			);
@@ -269,7 +268,7 @@
 			path = DoctorCellTests;
 			sourceTree = "<group>";
 		};
-		E1CEC21D21B19E0D0008D65E /* Scene */ = {
+		E1CEC21D21B19E0D0008D65E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				E1CEC21E21B19E1F0008D65E /* Scene.swift */,
@@ -278,8 +277,9 @@
 				E1CEC22E21B1D2660008D65E /* SceneCoordinator.swift */,
 				E1CEC23021B1D29D0008D65E /* SceneTransitionType.swift */,
 				E16D3E0521B709B400689EAA /* TabBarCoordinator.swift */,
+				E1CEC22C21B1A1580008D65E /* ViewModelProtocol.swift */,
 			);
-			path = Scene;
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		E1CEC22021B19E870008D65E /* Products */ = {

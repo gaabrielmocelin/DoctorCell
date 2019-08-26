@@ -23,7 +23,7 @@ final class LoginViewModel: ViewModelProtocol {
         self.coordinator = coordinator
         
         dismissAction = CocoaAction {
-            coordinator.pop(animated: true)
+            coordinator.dismiss(animated: true)
             return Observable.empty()
         }
         
