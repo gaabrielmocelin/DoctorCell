@@ -53,10 +53,11 @@ final class ProductsViewModel: ViewModelProtocol {
             return Observable.empty()
         }
         
-        selectedItem.subscribe(onNext: { [unowned self] (product) in
-            //open detail
-            let productDetailViewModel = ProductDetailViewModel(coordinator: self.coordinator)
-            coordinator.transition(to: .productDetail(productDetailViewModel), type: .push)
-        }).disposed(by: disposeBag)
+        selectedItem.subscribeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] (product) in
+                //open detail
+                let productDetailViewModel = ProductDetailViewModel(coordinator: self.coordinator, product: product)
+                coordinator.transition(to: .productDetail(productDetailViewModel), type: .push)
+            }).disposed(by: disposeBag)
     }
 }

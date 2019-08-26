@@ -10,8 +10,10 @@ import Foundation
 
 final class ProductDetailViewModel: ViewModelProtocol {
     let coordinator: SceneCoordinatorProtocol
+    let product: Product
     
-    init(coordinator: SceneCoordinatorProtocol) {
+    init(coordinator: SceneCoordinatorProtocol, product: Product) {
         self.coordinator = coordinator
+        self.product = product
     }
 }
